@@ -1,0 +1,13 @@
+import base64
+with open("input.txt", "r") as file:
+    content = file.read()
+protected = base64.b64encode(content.encode()).decode()
+with open("protected.txt", "w") as file:
+    file.write(protected)
+
+print("File protected successfully!")
+decoded = base64.b64decode(protected).decode()
+with open("restored.txt", "w") as file:
+    file.write(decoded)
+
+print("File restored successfully!")
